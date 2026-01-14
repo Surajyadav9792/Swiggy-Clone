@@ -40,7 +40,6 @@ export default function RestaurantHeader(){
     />
   </svg>
 
-  {/* Counter badge */}
   {counter > 0 && (
     <span className="absolute -top-2 -right-2 bg-white text-[#ff5200] text-xs font-bold px-2 py-0.5 rounded-full">
       {counter}

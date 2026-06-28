@@ -1,0 +1,19 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://www.swiggy.com/dapi/:splat"
+  status = 200
+  force = true
+  headers = { User-Agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" }
+
+[[redirects]]
+  from = "/mapi/*"
+  to = "https://www.swiggy.com/mapi/:splat"
+  status = 200
+  force = true
+  headers = { User-Agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" }
+
+# Fallback rule for React Single Page Application routing (avoids 404 on page refresh)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

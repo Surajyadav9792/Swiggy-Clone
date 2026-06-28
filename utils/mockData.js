@@ -3,7 +3,7 @@ export const mockRestaurants = [
     info: {
       id: "326429",
       name: "Biryani Blues",
-      cloudinaryImageId: "rx_mod/v1/e4f24efb48611d23b2d76f4e69d764cf_102660.jpg",
+      cloudinaryImageId: "PC_Mweb/Biryani.png",
       avgRatingString: "4.3",
       sla: {
         slaString: "20-25 mins"
@@ -16,7 +16,7 @@ export const mockRestaurants = [
     info: {
       id: "12345",
       name: "Domino's Pizza",
-      cloudinaryImageId: "rx_mod/v1/d0450ce1a6ba1d7c7c14165a89476c26_103328.jpg",
+      cloudinaryImageId: "PC_Mweb/Pizza.png",
       avgRatingString: "4.4",
       sla: {
         slaString: "25 mins"
@@ -29,7 +29,7 @@ export const mockRestaurants = [
     info: {
       id: "12346",
       name: "Burger King",
-      cloudinaryImageId: "rx_mod/v1/e33e1d3ad7d6d2dbec673a95ee11421c_101292.jpg",
+      cloudinaryImageId: "PC_Mweb/Burger.png",
       avgRatingString: "4.2",
       sla: {
         slaString: "30 mins"
@@ -42,7 +42,7 @@ export const mockRestaurants = [
     info: {
       id: "12347",
       name: "Haldiram's",
-      cloudinaryImageId: "rx_mod/v1/4508ef48d8b67cf9d2f2d90822e0325d.jpg",
+      cloudinaryImageId: "PC_Mweb/Pastry.png",
       avgRatingString: "4.5",
       sla: {
         slaString: "20 mins"
@@ -55,7 +55,7 @@ export const mockRestaurants = [
     info: {
       id: "12348",
       name: "Keventers - Milkshakes & Desserts",
-      cloudinaryImageId: "rx_mod/v1/8fa9e530510696b01cb4d4d3d75dfa31_102143.jpg",
+      cloudinaryImageId: "PC_Mweb/Shake.png",
       avgRatingString: "4.1",
       sla: {
         slaString: "15 mins"
@@ -68,7 +68,7 @@ export const mockRestaurants = [
     info: {
       id: "12349",
       name: "Punjab Grill",
-      cloudinaryImageId: "rx_mod/v1/3ba271a3962635a9478f7e847c2106ad.jpg",
+      cloudinaryImageId: "PC_Mweb/Kebab.png",
       avgRatingString: "4.6",
       sla: {
         slaString: "35 mins"
@@ -95,7 +95,7 @@ export const mockMenus = {
                   price: 27900,
                   defaultPrice: 27900,
                   description: "Richly flavored aromatic rice layered with marinated chicken, served with salan and raita.",
-                  imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/17/a7c640e7-81ab-41c1-90a6-16e6d1b24bf4_fd566c7a-50d4-473d-9e6b-07df9742a03e.jpeg",
+                  imageId: "PC_Mweb/Biryani.png",
                   ratings: {
                     aggregatedRating: {
                       rating: "4.4",
@@ -113,7 +113,7 @@ export const mockMenus = {
                   price: 24900,
                   defaultPrice: 24900,
                   description: "Aromatic rice cooked with soft paneer cubes in special spices, served with raita.",
-                  imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/17/a7c640e7-81ab-41c1-90a6-16e6d1b24bf4_fd566c7a-50d4-473d-9e6b-07df9742a03e.jpeg",
+                  imageId: "PC_Mweb/Biryani.png",
                   isVeg: true,
                   ratings: {
                     aggregatedRating: {
@@ -143,7 +143,7 @@ export const mockMenus = {
                   price: 23900,
                   defaultPrice: 23900,
                   description: "Classic delight with 100% real mozzarella cheese on a delicious pizza base.",
-                  imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/17/a7c640e7-81ab-41c1-90a6-16e6d1b24bf4_fd566c7a-50d4-473d-9e6b-07df9742a03e.jpeg",
+                  imageId: "PC_Mweb/Pizza.png",
                   isVeg: true,
                   ratings: {
                     aggregatedRating: {
@@ -162,7 +162,7 @@ export const mockMenus = {
                   price: 38900,
                   defaultPrice: 38900,
                   description: "Chunky paneer, crisp capsicum, and spicy red pepper with mozzarella.",
-                  imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/17/a7c640e7-81ab-41c1-90a6-16e6d1b24bf4_fd566c7a-50d4-473d-9e6b-07df9742a03e.jpeg",
+                  imageId: "PC_Mweb/Pizza.png",
                   isVeg: true,
                   ratings: {
                     aggregatedRating: {
@@ -192,7 +192,7 @@ export const mockMenus = {
                   price: 17900,
                   defaultPrice: 17900,
                   description: "Our signature Whopper with a flame-grilled plant-based patty, fresh lettuce, and tomatoes.",
-                  imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/17/a7c640e7-81ab-41c1-90a6-16e6d1b24bf4_fd566c7a-50d4-473d-9e6b-07df9742a03e.jpeg",
+                  imageId: "PC_Mweb/Burger.png",
                   isVeg: true,
                   ratings: {
                     aggregatedRating: {
@@ -211,7 +211,7 @@ export const mockMenus = {
                   price: 19900,
                   defaultPrice: 19900,
                   description: "Flame-grilled chicken patty layered with lettuce, creamy mayo, and crisp pickles.",
-                  imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/17/a7c640e7-81ab-41c1-90a6-16e6d1b24bf4_fd566c7a-50d4-473d-9e6b-07df9742a03e.jpeg",
+                  imageId: "PC_Mweb/Burger.png",
                   ratings: {
                     aggregatedRating: {
                       rating: "4.3",
@@ -240,7 +240,7 @@ export const mockMenus = {
                   price: 29900,
                   defaultPrice: 29900,
                   description: "Soft paneer cubes cooked in a thick spicy onion-tomato gravy.",
-                  imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/17/a7c640e7-81ab-41c1-90a6-16e6d1b24bf4_fd566c7a-50d4-473d-9e6b-07df9742a03e.jpeg",
+                  imageId: "PC_Mweb/Paratha.png",
                   isVeg: true,
                   ratings: {
                     aggregatedRating: {
@@ -259,7 +259,7 @@ export const mockMenus = {
                   price: 34900,
                   defaultPrice: 34900,
                   description: "Tender chicken cooked in rich makhani gravy with butter and cream.",
-                  imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/17/a7c640e7-81ab-41c1-90a6-16e6d1b24bf4_fd566c7a-50d4-473d-9e6b-07df9742a03e.jpeg",
+                  imageId: "PC_Mweb/Kebab.png",
                   ratings: {
                     aggregatedRating: {
                       rating: "4.6",
@@ -277,7 +277,7 @@ export const mockMenus = {
                   price: 8000,
                   defaultPrice: 8000,
                   description: "Classic leavened flatbread topped with minced garlic and butter.",
-                  imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/17/a7c640e7-81ab-41c1-90a6-16e6d1b24bf4_fd566c7a-50d4-473d-9e6b-07df9742a03e.jpeg",
+                  imageId: "PC_Mweb/Paratha.png",
                   isVeg: true,
                   ratings: {
                     aggregatedRating: {

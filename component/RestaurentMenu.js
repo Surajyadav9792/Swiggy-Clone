@@ -60,11 +60,6 @@ export default function RestaurantMenu (){
     return (
         <>
         <div>
-          <Link to={`/city/delhi/${id}/search`}>
-          <div className="w-[80%] mx-auto mt-20">
-           <button className="w-full py-4 text-center bg-gray-300 rounded-3xl border">Search the Item</button>
-          </div>
-           </Link>
            <div className="w-[80%] mx-auto mt-20">
              <button className={`rounded-2xl font-bold py-2 px-8 border mr-2 bg-gray-300 ${selcted==='veg'? "bg-green-600":"bg-gray-300"}`} onClick={()=>setslected(selcted==='veg'?null:'veg')}>Veg</button>
              <button className={`rounded-2xl font-bold py-2 px-4 border mr-2 bg-gray-300 ${selcted==='nonveg'? "bg-red-600":"bg-gray-300"}`}onClick={()=>setslected(selcted==='nonveg'?null:'nonveg')} >Non Veg</button>

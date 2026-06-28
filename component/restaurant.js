@@ -9,9 +9,13 @@ export default function Restaurant(){
   useEffect(()=>{
     async function fetchData() {
       try {
-        const proxyserver = "https://corsproxy.io/?";
-        const swiggyAPI = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true";
-        const response = await fetch(proxyserver + swiggyAPI);
+        const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+        const swiggyAPI = "restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true";
+        const fetchURL = isLocal 
+          ? "https://corsproxy.io/?https://www.swiggy.com/dapi/" + swiggyAPI
+          : "/api/" + swiggyAPI;
+
+        const response = await fetch(fetchURL);
         if (!response.ok) {
           throw new Error("HTTP error " + response.status);
         }

@@ -12,10 +12,13 @@ export default function RestaurantMenu (){
     useEffect(()=>{
       async function fetchData() {
         try {
-          const proxyServer = "https://corsproxy.io/?";
-          const MenuAPI = `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=${id}`;
+          const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+          const menuParams = `menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=${id}`;
+          const fetchURL = isLocal
+            ? "https://corsproxy.io/?https://www.swiggy.com/mapi/" + menuParams
+            : "/mapi/" + menuParams;
 
-          const response = await fetch(proxyServer + MenuAPI);
+          const response = await fetch(fetchURL);
           if (!response.ok) {
             throw new Error("HTTP error " + response.status);
           }

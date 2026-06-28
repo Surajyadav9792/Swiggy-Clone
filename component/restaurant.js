@@ -1,34 +1,41 @@
 import { useState, useEffect } from "react";
 import RestCard from "./RestCard";
 import Simmer from "./simmar";
+import { mockRestaurants } from "../utils/mockData";
 
 export default function Restaurant(){
   const [RestData, setRestData] = useState([]);
 
   useEffect(()=>{
     async function fetchData() {
-      const proxyserver="https://cors-anywhere.herokuapp.com/";
-      const swiggyAPI="https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true";
-      const response = await fetch(proxyserver + swiggyAPI);
-      const data = await response.json();
+      try {
+        const proxyserver = "https://corsproxy.io/?";
+        const swiggyAPI = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true";
+        const response = await fetch(proxyserver + swiggyAPI);
+        if (!response.ok) {
+          throw new Error("HTTP error " + response.status);
+        }
+        const data = await response.json();
 
-      setRestData(
-        data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
-      );
+        // Dynamically find the card containing restaurants instead of hardcoding cards[1]
+        const restaurantCard = data?.data?.cards?.find(
+          card => card?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        );
+        const restaurants = restaurantCard?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+        if (restaurants && restaurants.length > 0) {
+          setRestData(restaurants);
+        } else {
+          console.warn("Restaurants not found in live data, loading mock fallback.");
+          setRestData(mockRestaurants);
+        }
+      } catch (error) {
+        console.error("CORS proxy or Swiggy API failed. Falling back to mock data:", error);
+        setRestData(mockRestaurants);
+      }
     }
     fetchData();
   },[]);
-
-  // this is basic simmir effect
-  // if(RestData.length==0){
-  //   return (
-  //     <>
-  //     <div className="flex items-center justify-center font-bold text-2xl">
-  //       <h1>Data is Loading.....</h1>
-  //     </div>
-  //     </>
-  //   )
-  // }
 
   if(RestData.length==0){
     return(
@@ -49,3 +56,4 @@ export default function Restaurant(){
     </>
   )
 }
+

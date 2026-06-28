@@ -3,21 +3,45 @@ import { useEffect, useState } from "react";
 import MenuCard from "./MenuItCard1";
 import Simmer from "./simmar";
 import { Link } from "react-router";
+import { mockMenus } from "../utils/mockData";
+
 export default function RestaurantMenu (){
     let {id}=useParams();
     const [RestId,setRestId]=useState([]);
     const [selcted,setslected]=useState(null);
     useEffect(()=>{
       async function fetchData() {
-        const proxyServer="https://cors-anywhere.herokuapp.com/";
-         const MenuAPI = `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=${id}`;
+        try {
+          const proxyServer = "https://corsproxy.io/?";
+          const MenuAPI = `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=${id}`;
 
-        const response=await fetch(proxyServer+MenuAPI);
-        const data=await response.json();
-        const tempData=data?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-        // ham filter kar raha hai tempdata me se jisame title present ho
-        const filterData=tempData.filter((items)=>'title' in items?.card?.card)
-        setRestId(filterData);
+          const response = await fetch(proxyServer + MenuAPI);
+          if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+          }
+          const data = await response.json();
+
+          // Dynamically locate the grouped card that holds the menu cards
+          const menuGroupedCard = data?.data?.cards?.find(
+            card => card?.groupedCard?.cardGroupMap?.REGULAR?.cards
+          );
+          const tempData = menuGroupedCard?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
+          
+          // filter items that have title in card.card
+          const filterData = tempData.filter((items)=>'title' in items?.card?.card)
+          
+          if (filterData && filterData.length > 0) {
+            setRestId(filterData);
+          } else {
+            console.warn("No filterable categories found in live menu data, using mock menu.");
+            const fallbackMenu = mockMenus[id] || mockMenus["default"];
+            setRestId(fallbackMenu);
+          }
+        } catch (error) {
+          console.error("CORS proxy or Swiggy menu API failed. Falling back to mock menu:", error);
+          const fallbackMenu = mockMenus[id] || mockMenus["default"];
+          setRestId(fallbackMenu);
+        }
       }
        fetchData();
     },[]);
@@ -51,3 +75,4 @@ export default function RestaurantMenu (){
         </>
     )
 }
+

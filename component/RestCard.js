@@ -1,17 +1,12 @@
 import { Link } from "react-router"
 export default function RestCard({restInfo}){
     return (
-      <Link to={"/city/delhi/"+restInfo?.info?.id}>
-        <div className="max-w-75 relative">
-   <div className="
-          w-70 m-4 bg-white 
-          hover:scale-95
-          transition-transform duration-200
-          cursor-pointer ">
-            <img className=" w-70 h-45 object-cover rounded-xl" src={"https://media-assets.swiggy.com/swiggy/image/upload/"+restInfo?.info?.cloudinaryImageId}></img>
-            <div className="ml-3 ">
-                <div className="font-bold mt-3">{restInfo?.info?.name}</div>
-            <div className="flex items-center gap-2">
+      <Link to={"/city/delhi/"+restInfo?.info?.id} className="w-full max-w-[280px] block mb-4">
+        <div className="bg-white hover:scale-95 transition-transform duration-200 cursor-pointer w-full">
+            <img className="w-full h-44 object-cover rounded-xl shadow-xs" src={"https://media-assets.swiggy.com/swiggy/image/upload/"+restInfo?.info?.cloudinaryImageId} alt={restInfo?.info?.name}></img>
+            <div className="mt-3 px-1">
+                <div className="font-bold text-gray-900 text-lg line-clamp-1">{restInfo?.info?.name}</div>
+            <div className="flex items-center gap-2 mt-1">
   {/* Rating */}
   <div className="flex items-center gap-1">
     <div className="flex items-center justify-center w-5 h-5 rounded-full bg-[#1BA672]">
@@ -24,23 +19,22 @@ export default function RestCard({restInfo}){
       </svg>
     </div>
 
-     <span className="text-lg font-semibold text-gray-800">
+     <span className="text-base font-semibold text-gray-800">
       {restInfo?.info?.avgRatingString}
      </span>
      </div>
-     <span className="text-lg font-semibold text-gray-800">
-    {restInfo?.info?.sla?.slaString}
-   </span>
+     <span className="text-base font-semibold text-gray-800">
+      • {restInfo?.info?.sla?.slaString}
+    </span>
 </div>
 
-             <span className="text-gray-600">
+             <span className="text-gray-500 text-sm mt-1 block">
               {/* line-clamp-1 by this if the text is large the after few part it print ..... */}
-             <div className="line-clamp-1">{restInfo?.info?.cuisines.join(" ")}</div>
+             <div className="line-clamp-1">{restInfo?.info?.cuisines.join(", ")}</div>
              <div>{restInfo?.info?.areaName}</div>
             </span>
            </div>
            </div>
-        </div>
           </Link>
     )
   

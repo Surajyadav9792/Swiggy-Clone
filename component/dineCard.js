@@ -1,8 +1,8 @@
 export default function DineCard({ DineValue }) {
   return (
-   <div className=" w-[80%] mb-10">
-     <a target="_blank" href={DineValue?.cta?.link}>
-      <div className="w-64 flex-none relative">
+   <div className="flex-none w-64 mb-10">
+     <a target="_blank" href={DineValue?.cta?.link} rel="noreferrer">
+      <div className="w-64 relative">
         <img
           className="rounded-2xl w-64 h-48 object-cover"
           src={

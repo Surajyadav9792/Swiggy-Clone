@@ -22,29 +22,29 @@ export default function Header (){
     return (
         <>
         <header className="bg-[#ff5200] font-serif">
-         <div className="flex justify-between container mx-auto py-8">
+         <div className="flex flex-col md:flex-row justify-between items-center gap-4 px-6 py-6 md:py-8 container mx-auto">
             <img className="w-40 h-12" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png" alt="Swiggy Logo"></img>
-            <div className="flex justify-center text-white gap-15 text-base items-center">
+            <div className="flex flex-wrap justify-center text-white gap-4 md:gap-10 text-sm md:text-base items-center">
                     <a target="_blank" rel="noreferrer" href="https://www.swiggy.com/corporate/">Swiggy Corporate</a>
                      <a target="_blank" rel="noreferrer" href="https://partner.swiggy.com/login#/swiggy" >Partner with us</a>
-                     <a className="border border-white flex items-center rounded-2xl py-3 px-4" target="_blank" rel="noreferrer" href="https://www.swiggy.com/mobile-app" >Get the app</a>
-                     <a className="border border-black bg-black rounded-2xl flex items-center py-3 px-4" target="_blank" rel="noreferrer" href="https://www.swiggy.com/auth" >Sign in</a>
+                     <a className="border border-white flex items-center rounded-2xl py-2 md:py-3 px-4" target="_blank" rel="noreferrer" href="https://www.swiggy.com/mobile-app" >Get the app</a>
+                     <a className="border border-black bg-black rounded-2xl flex items-center py-2 md:py-3 px-4" target="_blank" rel="noreferrer" href="https://www.swiggy.com/auth" >Sign in</a>
             </div>
          </div>
 
-           <div className="pt-16 pb-8 relative">
-            <div className=" max-w-[60%]  text-5xl text-white font-bold container mx-auto text-center">Order food & groceries. Discover best restaurants. Swiggy it!</div>
+           <div className="pt-10 md:pt-16 pb-8 relative">
+            <div className="max-w-[90%] md:max-w-[60%] text-3xl md:text-5xl text-white font-bold container mx-auto text-center px-4">Order food & groceries. Discover best restaurants. Swiggy it!</div>
             <div>
-                <img className="h-110 w-60 absolute top-0 left-0" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Veggies_new.png" alt="Veggies Decor"></img>
-                <img className="h-110 w-60 absolute top-0 right-0" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png" alt="Sushi Decor"></img>
-              <div  className=" max-w-[70%] container mx-auto flex text-2xl mt-10 ml-63 gap-5">
-                <input  className="w-[40%] border border-white bg-white rounded-2xl  px-6 py-4" placeholder="Delhi,India"></input> 
-               <input  className="w-[55%] border border-white bg-white rounded-2xl  px-6 py-4" placeholder="Search for restaurant,item or more"></input> 
+                <img className="hidden lg:block h-110 w-60 absolute top-0 left-0" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Veggies_new.png" alt="Veggies Decor"></img>
+                <img className="hidden lg:block h-110 w-60 absolute top-0 right-0" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/testing/seo-home/Sushi_replace.png" alt="Sushi Decor"></img>
+              <div className="max-w-[90%] md:max-w-[70%] container mx-auto flex flex-col md:flex-row text-lg md:text-2xl mt-10 gap-4 px-4 justify-center items-center">
+                <input className="w-full md:w-[40%] border border-white bg-white rounded-2xl px-6 py-3 md:py-4" placeholder="Delhi,India"></input> 
+                <input className="w-full md:w-[55%] border border-white bg-white rounded-2xl px-6 py-3 md:py-4" placeholder="Search for restaurant,item or more"></input> 
               </div>
             </div>
 
             {/* Navigation Options Section */}
-            <div className="max-w-[80%] container mx-auto flex gap-6 justify-center mt-12">
+            <div className="max-w-[90%] md:max-w-[80%] container mx-auto flex flex-col md:flex-row gap-6 justify-center mt-12 px-4">
               
               {/* FOOD DELIVERY (Functional Clone) */}
               <div className="relative flex-1 transition-transform duration-300 hover:scale-[1.03]">

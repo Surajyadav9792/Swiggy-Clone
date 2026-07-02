@@ -15,59 +15,61 @@ export default function MenuCard({menuItem,foodslected}){
     if(!IsOpen){
        return(
          <div className="w-full">
-       <div className="flex justify-between w-full">
-         <p className="text-3xl font-bold mb-4">{menuItem?.title}</p>
-        <button className="text-3xl mr-20 font-bold" onClick={()=>setOpen(!IsOpen)}>{IsOpen?'▲':'▼'}</button>
+       <div className="flex justify-between items-center w-full py-2">
+         <p className="text-xl md:text-2xl font-bold text-gray-800">{menuItem?.title}</p>
+         <button className="text-xl md:text-2xl font-bold focus:outline-none cursor-pointer" onClick={()=>setOpen(!IsOpen)}>{IsOpen?'▲':'▼'}</button>
        </div>
-       <div className="h-5 bg-gray-400 mt-2 mb-2"></div>
+       <div className="h-2 bg-gray-200 mt-2 mb-4"></div>
          </div>
        )
     }
    if(foodslected==='veg'){
+     const vegItems = menuItem?.itemCards?.filter((food)=>"isVeg" in food?.card?.info) || [];
      return (
         <div className="w-full">
-       <div className="flex justify-between w-full">
-         <p className="text-3xl font-bold mb-4">{menuItem?.title}</p>
-        <button className="text-3xl mr-20 font-bold" onClick={()=>setOpen(!IsOpen)}>{IsOpen?'▲':'▼'}</button>
+       <div className="flex justify-between items-center w-full py-2">
+         <p className="text-xl md:text-2xl font-bold text-gray-800">{menuItem?.title} ({vegItems.length})</p>
+         <button className="text-xl md:text-2xl font-bold focus:outline-none cursor-pointer" onClick={()=>setOpen(!IsOpen)}>{IsOpen?'▲':'▼'}</button>
        </div>
-        <div>
+        <div className="mt-4">
             {
-                menuItem?.itemCards?.filter((food)=>"isVeg" in food?.card?.info).map((recomdedItem2)=><RecommendedList key={recomdedItem2?.card?.info?.id}  restData={recomdedItem2?.card?.info}></RecommendedList> )
+                vegItems.map((recomdedItem2)=><RecommendedList key={recomdedItem2?.card?.info?.id}  restData={recomdedItem2?.card?.info}></RecommendedList> )
             }
         </div>
-          <div className="h-5 bg-gray-200 mt-2 mb-2"></div>
+          <div className="h-2 bg-gray-200 mt-2 mb-4"></div>
         </div>
-    )
+     )
    }
    if(foodslected==='nonveg'){
-    return (
+     const nonvegItems = menuItem?.itemCards?.filter((food)=>!("isVeg" in food?.card?.info)) || [];
+     return (
         <div className="w-full">
-       <div className="flex justify-between w-full">
-         <p className="text-3xl font-bold mb-4">{menuItem?.title}</p>
-        <button className="text-3xl mr-20 font-bold" onClick={()=>setOpen(!IsOpen)}>{IsOpen?'▲':'▼'}</button>
+       <div className="flex justify-between items-center w-full py-2">
+         <p className="text-xl md:text-2xl font-bold text-gray-800">{menuItem?.title} ({nonvegItems.length})</p>
+         <button className="text-xl md:text-2xl font-bold focus:outline-none cursor-pointer" onClick={()=>setOpen(!IsOpen)}>{IsOpen?'▲':'▼'}</button>
        </div>
-        <div>
+        <div className="mt-4">
             {
-                menuItem?.itemCards?.filter((food)=>!("isVeg" in food?.card?.info)).map((recomdedItem2)=><RecommendedList key={recomdedItem2?.card?.info?.id}  restData={recomdedItem2?.card?.info}></RecommendedList> )
+                nonvegItems.map((recomdedItem2)=><RecommendedList key={recomdedItem2?.card?.info?.id}  restData={recomdedItem2?.card?.info}></RecommendedList> )
             }
         </div>
-          <div className="h-5 bg-gray-200 mt-2 mb-2"></div>
+          <div className="h-2 bg-gray-200 mt-2 mb-4"></div>
         </div>
-    )
+     )
    }
     return(
         <>
         <div className="w-full">
-       <div className="flex justify-between w-full">
-         <p className="text-3xl font-bold mb-4">{menuItem?.title}</p>
-        <button className="text-3xl mr-20 font-bold" onClick={()=>setOpen(!IsOpen)}>{IsOpen?'▲':'▼'}</button>
+       <div className="flex justify-between items-center w-full py-2">
+         <p className="text-xl md:text-2xl font-bold text-gray-800">{menuItem?.title} ({menuItem?.itemCards?.length || 0})</p>
+         <button className="text-xl md:text-2xl font-bold focus:outline-none cursor-pointer" onClick={()=>setOpen(!IsOpen)}>{IsOpen?'▲':'▼'}</button>
        </div>
-        <div>
+        <div className="mt-4">
             {
                 menuItem?.itemCards?.map((recomdedItem2)=><RecommendedList key={recomdedItem2?.card?.info?.id}  restData={recomdedItem2?.card?.info} ></RecommendedList> )
             }
         </div>
-          <div className="h-5 bg-gray-200 mt-2 mb-2"></div>
+          <div className="h-2 bg-gray-200 mt-2 mb-4"></div>
         </div>
         </>
     )

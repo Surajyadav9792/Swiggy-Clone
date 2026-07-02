@@ -20,9 +20,9 @@ import { Link } from "react-router";
 export default function RestaurantHeader(){
     const counter=useSelector(state => state.cartslice.count);
     return (
-        <div className="w-[80%] mx-auto flex justify-between mt-10 bg-[#ff5200] rounded-xl "> 
-           <img className="bg-[#ff5200] font-serif w-40 h-12 ml-2" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png"></img>
-           <Link to="/Checkout" className="flex items-center mr-4 mt-2 relative">
+        <div className="w-[90%] md:w-[80%] mx-auto flex justify-between items-center py-2 px-4 mt-6 md:mt-10 bg-[#ff5200] rounded-xl shadow-md"> 
+           <img className="font-serif w-32 h-10 md:w-40 md:h-12 ml-1" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png" alt="Swiggy Logo"></img>
+           <Link to="/Checkout" className="flex items-center mr-2 relative">
   
   {/* Cart SVG */}
   <svg

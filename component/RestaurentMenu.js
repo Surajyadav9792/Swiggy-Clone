@@ -60,11 +60,11 @@ export default function RestaurantMenu (){
     return (
         <>
         <div>
-           <div className="w-[80%] mx-auto mt-20">
-             <button className={`rounded-2xl font-bold py-2 px-8 border mr-2 bg-gray-300 ${selcted==='veg'? "bg-green-600":"bg-gray-300"}`} onClick={()=>setslected(selcted==='veg'?null:'veg')}>Veg</button>
-             <button className={`rounded-2xl font-bold py-2 px-4 border mr-2 bg-gray-300 ${selcted==='nonveg'? "bg-red-600":"bg-gray-300"}`}onClick={()=>setslected(selcted==='nonveg'?null:'nonveg')} >Non Veg</button>
+           <div className="w-[90%] md:w-[80%] mx-auto mt-10 md:mt-20 px-2 md:px-0 flex gap-2">
+             <button className={`rounded-2xl font-bold py-2 px-6 md:px-8 border bg-gray-300 ${selcted==='veg'? "bg-green-600 text-white":"bg-gray-300 text-gray-800"}`} onClick={()=>setslected(selcted==='veg'?null:'veg')}>Veg</button>
+             <button className={`rounded-2xl font-bold py-2 px-4 md:px-6 border bg-gray-300 ${selcted==='nonveg'? "bg-red-600 text-white":"bg-gray-300 text-gray-800"}`}onClick={()=>setslected(selcted==='nonveg'?null:'nonveg')} >Non Veg</button>
            </div>
-        <div className="w-[80%] mx-auto mt-20">
+        <div className="w-[90%] md:w-[80%] mx-auto mt-10 md:mt-20 px-2 md:px-0">
             {
               RestId?.map((menuItem)=> <MenuCard key={menuItem?.card?.card?.title} menuItem={menuItem?.card?.card} foodslected={selcted}></MenuCard>)
             }

@@ -51,7 +51,7 @@ export default function Restaurant(){
 
   return (
     <>
-    <div className="w-[80%] mt-20 flex flex-wrap container mx-auto">
+    <div className="w-[90%] md:w-[80%] mt-10 md:mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 container mx-auto justify-items-center mb-20 px-2 md:px-0">
       {
         RestData.map((restInfo)=> <RestCard key={restInfo.info.id} restInfo={restInfo}></RestCard>)
       }
